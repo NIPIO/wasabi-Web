@@ -1,0 +1,8 @@
+.ocultar {
+	display: none;
+}
+
+.table td, .table th {
+	padding: .10rem .75rem ;
+	text-align: center
+}

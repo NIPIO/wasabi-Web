@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block sidebarMenu %}
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {% for categoria in categorias %}
+        <a href="#" class="esNav" data-category-type="{{categoria.nombre}}">{{categoria.nombre}}</a>
+    {% endfor %}
+{% endblock %}
+
+
+{% block body %}
+    {% for producto in productos %}
+        <a class="item-producto" href="{{ path('producto' ,  {'nombre': producto.nombre }) }}" data-category-name="{{producto.categoria.nombre}}">
+            <div class="imagen-producto d-flex justify-content-between align-items-center">
+                <div></div>
+                <img src="{{ asset('img/productos/')}}{{producto.url}}" alt="">
+                <div></div>
+            </div>
+            <div class="descripcion-producto">
+                <div class="span-descripcion">
+                    <span>{{producto.nombre}}</span>
+                </div>
+                <div class="precio-descripcion">
+                    <span>${{producto.precio}}.-</span>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}

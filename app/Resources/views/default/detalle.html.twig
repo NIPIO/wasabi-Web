@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+		<div class="producto-general row col-12 ma-6">
+			<div class="producto-imagen col-lg-6 col-md-6 col-sm-12">
+				<img src="{{ asset('img/productos/')}}{{producto.url}}" class="col-lg-4 col-md-4 col-sm-6" alt=""> 
+			</div>
+			<div class="producto-descripcion col-lg-6 col-md-6 col-sm-12 row">
+				<div class="col-12">
+					<p>{{producto.descripcion}}</p>
+				</div>
+				<button id="agregarCarrito" class="button col-12" data-producto="{{producto.id}},{{producto.nombre}},{{producto.descripcion}},{{producto.precio}},{{producto.url}} ">Agregar al carrito</button>
+			</div>
+		</div>
+		
+		<div class="producto-general row col-12 ma-6">
+		    {% for productoSim in productosSimilares %}
+		    <a class="col-lg-4 col-sm-6" href="{{ path('producto' ,  {'nombre': productoSim.nombre }) }}" style="height: 200px!important">
+		    	<div class="d-flex justify-content-between align-items-center m-auto">
+		    		<img src="{{ asset('img/productos/')}}{{productoSim.url}}" alt="" class="m-auto" style="max-height: 150px!important" >
+		    	</div>
+	    		<div class="descripcion-producto">
+	                <div class="span-descripcion">
+	                    <span>{{productoSim.nombre}}</span>
+	                </div>
+	                <div class="precio-descripcion">
+	                    <span>${{productoSim.precio}}.-</span>
+	                </div>
+	            </div>
+		    </a>
+		    {% endfor %}
+		</div>
+ {% endblock %}

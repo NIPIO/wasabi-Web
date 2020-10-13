@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Wasabi{% endblock %}</title>
+
+        {% block stylesheets %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Muli:wght@290&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:100,200,300">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+            <link rel="icon" type="image/x-icon" href="{{ asset('img/wasabi/wasabi_identificador-04.ico') }}" />
+        {% endblock %}
+
+    </head>
+    <body id="body">
+        <div id="mySidenav" class="sidenav esNav">
+            {% block sidebarMenu %}
+            {% endblock %}
+        </div>
+        <div id="mySideCarrito" class="sideCarrito esCarrito">
+            <div class="carritoInterno esCarrito">
+                <div class="tituloCarrito esCarrito">
+                    <p>carrito de compras</p>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeCarrito()">&times;</a>
+                </div>
+                <div id="noHayProductos" class="row">
+                    <p>no hay productos en el carrito de compras</p>
+                </div>
+                <span id="loader" style="display:none">
+                    <img src="{{ asset('img/loading.gif')}}" class="loading">
+                </span>
+                <form id="formularioCarrito"  action="{{ path('obtenerPreferenceMP') }}" method="POST" >
+                    
+                </form>
+            </div>
+        </div>
+        <header class="row col-lg-9 col-md-10 col-sm-12 col-xs-12 mx-auto mb-4">
+                    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto row">
+                        <div class="header-interno d-flex justify-content-between">                     
+                            <div class="div-imagenes-header">
+                                <img src="{{ asset('img/burger.svg')}}" alt=""  class="carrito iconoMenu" onclick="openNav()">
+                                <a href="{{ path('homepage') }}" class="div-imagenes-header iconoBack" style="" ><img src="{{ asset('img/back.svg')}}" alt="" class="carrito goBack"></a>
+                            </div>
+                            <a href="{{ path('homepage') }}" class="div-imagenes-header"><img src="{{ asset('img/wasabi/wasabi.png')}}" alt=""  class="logo"></a>
+                            <div class="div-imagenes-header iconoCarrito"><img src="{{ asset('img/carrito.svg')}}" alt="" class="carrito esCarrito " onclick="openCarrito()">
+                                <div id="cantidadCarrito">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </header>
+        <main class="row col-lg-9 col-md-10 col-sm-12 col-xs-12 m-auto">
+                    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 m-auto row">
+                        <div class="body-interno d-flex justify-content-around flex-wrap row">
+                            <span id="loader" style="display:none">
+                                <img src="{{ asset('img/loading.gif')}}" class="loading">
+                            </span>
+                            {% block body %}
+                            {% endblock %}
+                        </div>
+                    </div>
+        </main>
+
+        <footer class="row col-lg-9 col-md-10 col-sm-12 col-xs-12 m-auto">
+                    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5 mb-2 row">
+                        <hr class="my-auto flex-grow-1">
+                        <div class="px-4">
+                        <h4>contactanos</h4>
+                        </div>
+                        <hr class="my-auto flex-grow-1">
+                    </div>
+                    <div class=" col-12 mx-auto my-5 row d-flex justify-content-center">
+                        <div><a href="https://instagram.com/" target="_blank"><img src="{{ asset('img/redes/instagram.svg')}}" alt="" class="contacto-icon"></a></div>
+                        <div><a href="https://api.whatsapp.com/send?phone=1567969155&text=Hola%20wasabi..." target="_blank"><img src="{{ asset('img/redes/whatsapp.svg')}}" alt="" class="contacto-icon"></a></div>
+                        <!-- <div><a href=""><img src="{{ asset('img/redes/google.svg')}}" alt="" class="contacto-icon"></a></div> -->
+                    </div>
+                    <div class=" col-12 mx-auto my-5 mb-5 row d-flex justify-content-center">
+                        <form id="formularioContacto">
+                            <div class="form-row mb-4">
+                                <div class="col-6">
+                                    <input type="text"  class='contacto-form col-12 ' placeholder="nombre y apellido" id="nombreContacto" required="required">
+                                </div>
+                                <div class="col-6">
+                                    <input type="mail"  class='contacto-form col-12 ' placeholder="correo" id="mailContacto" required="required">
+                                </div>
+                            </div>
+                            <textarea  id="asuntoContacto" class='contacto-form col-12' maxlength="120" rows="2" placeholder="hola wasabi! me gustaría saber acerca de ..."  required="required"></textarea>
+                            <div class="form-row row">
+                                <input class="button" type="submit" value="contactar" id="contactarButton">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row col-12 m-0 text-center mt-5 pt-5">
+                        <div class="col-12"   style=" font-variant: small-caps; opacity: 0.7">
+                            <a href="http://www.nimapio.com" target="_blank" style="text-decoration:none;">
+                                <span>desarrollado por</span> <span style="color: black">nmp.</span><br><span>buenos aires, argentina. <br> 2020.</span>
+                            </a>
+                        </div>
+                    </div>
+        </footer>
+        {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+
+        {% endblock %}
+    </body>
+
+
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row col-12 text-center m-5">
+	   	<h3 style="color:{{color}}" class="m-auto">{{mensaje}}</h3>		
+	   	<div class="col-12 my-5">
+	   		<a href="{{path('homepage')}}" class="btn btn-outline-dark m-auto" style="text-decoration: none">Volver</a>
+	   	</div>
+	</div>
+ {% endblock %}

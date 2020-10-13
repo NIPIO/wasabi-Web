@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en" class="h-100 w-100">
+<head>
+	<meta charset="UTF-8">
+	<title>Administración</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body class="row ml-0 mr-0 h-100 w-100">
+	<form action="{{ path('login') }}" method="POST" class="m-auto">
+		<div class="row col-9 m-auto p-auto">
+			<div class="row col-12 mb-4 mx-auto">
+				<div class="row col-6 m-auto">
+				<label for="" class="col-12">Usuario</label>
+				<input type="text" class="col-12" name="usuario">
+				</div>
+				<div class="row col-6 m-auto">
+				<label for="" class="col-12">Contraseña</label>
+				<input type="password" class="col-12" name="pass">
+				</div>
+			</div>
+			<div class="row col-12 m-auto ">
+				<input type="submit" class="col-6 m-auto" value="Entrar"> 
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+
+
+

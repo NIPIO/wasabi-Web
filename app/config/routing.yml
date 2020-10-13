@@ -1,0 +1,12 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+# login:
+#     resource: '@AppBundle/Controller/'
+#     type: annotation
+# subir:
+#     resource: '@AppBundle/Controller/'
+#     type: annotation
+redirect:
+    resource: '@AppBundle/Controller/'
+    type: annotation

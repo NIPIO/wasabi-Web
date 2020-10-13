@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   	<table class="mt-3 mx-auto table  table-striped col-12">
+		<thead class="thead-dark">
+			<tr>
+				<th class="col-3">Nombre</th>
+				<th class="col-3">Descripcion</th>
+				<th class="col-1">Cantidad</th>
+				<th class="col-2">Precio Unidad</th>
+				<th class="col-3">Precio Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+			<tr>
+		        <td class="col-3">{{item.title}}</td>
+		        <td class="col-3">{{item.description}}</td>
+		        <td class="col-1">{{item.quantity}}</td>
+		        <td class="col-2">${{item.unit_price}}</td>
+		        <td class="col-3">${{item.totalitem}}</td>
+		    </tr>
+	    	{% endfor %}
+	    	<tr>
+		        <td class="col-3"></td>
+		        <td class="col-3"></td>
+		        <td class="col-1"></td>
+		        <td class="col-2"> <b>Final</b></td>
+		        <td class="col-3"> <b>${{precioTotalFinal}}</b></td>
+		    </tr>
+	    </tbody>
+	</table>
+	<form action="/procesar-pago" method="POST" class="row">
+	  <script
+	   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+	   data-preference-id="{{respuesta}}">
+	  </script>
+	</form>
+
+ {% endblock %}
